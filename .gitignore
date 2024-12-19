@@ -1,17 +1,17 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build
 
 # misc
 .DS_Store
@@ -19,6 +19,8 @@
 
 # debug
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # local env files
 .env*.local
