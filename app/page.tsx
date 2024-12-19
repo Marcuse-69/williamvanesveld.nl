@@ -1,2 +1,5 @@
-"use client";
-export { default } from '../components/DadaPortfolio';
+import DadaPortfolio from './components/DadaPortfolio';
+
+export default function Home() {
+  return <DadaPortfolio />;
+}
