@@ -1,60 +1,63 @@
--600 cursor-pointer">{glitchText("About")}</p>
-          <p className="hover:text-gray-600 cursor-pointer">{glitchText("Newsletter")}</p>
-          <p className="hover:text-gray-600 cursor-pointer">{glitchText("Email")}</p>
-          <p className="hover:text-gray-600 cursor-pointer">{glitchText("Instagram")}</p>
-        </div>
+"use client";
 
-        <div className="mt-12 text-sm font-mono opacity-50 hover:opacity-100 transition-opacity">
-          © MMXXIV Glass Experiments
+import React, { useState, useEffect } from 'react';
+import { Camera } from 'lucide-react';
+
+const DadaPortfolio = () => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isGlitching, setIsGlitching] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900 cursor-crosshair overflow-hidden">
+      <nav 
+        id="nav-container"
+        className="w-72 p-8 border-r border-gray-200 h-screen fixed backdrop-blur-sm bg-white/70"
+        onMouseEnter={() => setIsGlitching(true)}
+        onMouseLeave={() => setIsGlitching(false)}
+      >
+        <h1 className="text-4xl font-light mb-12">
+          William van Esveld
+        </h1>
+        
+        <ul className="space-y-4 mb-12">
+          {[
+            'Murano Studies',
+            'Venice Reflections',
+            'North Sea Tales',
+            'Glass Formations',
+            'Light Experiments',
+            'Water Memories',
+            'Studio Works',
+            'Recent Pieces',
+            'Exhibitions'
+          ].map((item, index) => (
+            <li key={index} className="hover:text-gray-600">
+              <span className="font-mono">{(index + 1).toString().padStart(2, '0')}.</span> {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="space-y-2 mt-auto">
+          <p>About</p>
+          <p>Newsletter</p>
+          <p>Email</p>
+          <p>Instagram</p>
         </div>
       </nav>
 
-      <main className="ml-72 flex-1 p-8 relative">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-light mb-8 tracking-wider hover:tracking-widest transition-all duration-700">
-            {glitchText("Glaskunst & Conceptueel Werk")}
-          </h2>
-          
-          <div className="relative aspect-[4/3] bg-gray-100 mb-8 overflow-hidden group">
-            <div className="absolute inset-0 flex items-center justify-center bg-white">
-              <div className="relative w-full h-full">
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  <Camera 
-                    size={48} 
-                    className="opacity-20" 
-                    style={{
-                      transform: `scale(${1 + glitchIntensity * 0.2})`,
-                      transition: 'transform 0.3s ease'
-                    }}
-                  />
-                </div>
-                
-                <div 
-                  className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent"
-                  style={{
-                    opacity: glitchIntensity * 0.5,
-                    transform: `rotate(${glitchIntensity * 45}deg)`,
-                    transition: 'all 0.5s ease'
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="prose prose-lg max-w-none space-y-8">
-            <p className="text-lg leading-relaxed text-gray-700">
-              {glitchText("De glasobjecten vertellen het verhaal van de lagune van Venetië en de kleuren van de Noordzee. Kleine details op het glas illustreren mosselen, kwallen en zeewier.")}
-            </p>
-
-            <h2 className="text-3xl font-light mb-4 mix-blend-difference">
-              {glitchText("Experiments in Glass & Light")}
-            </h2>
-            
-            <h3 className="text-2xl font-light mix-blend-multiply">
-              {glitchText("Amsterdam · Venetië · Murano")}
-            </h3>
-          </div>
-        </div>
+      <main className="ml-72 p-8">
+        <h2 className="text-3xl font-light mb-8">
+          Glaskunst & Conceptueel Werk
+        </h2>
       </main>
     </div>
   );
