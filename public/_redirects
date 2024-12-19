@@ -1,0 +1,2 @@
+/* Redirect all 404 errors to the index.html file */
+* /index.html 404
