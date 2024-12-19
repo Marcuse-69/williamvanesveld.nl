@@ -11,12 +11,11 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "framer-motion": "^10.16.4",
-    "@tailwindcss/typography": "^0.5.10"
+    "lucide-react": "latest"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest"
   }
 }

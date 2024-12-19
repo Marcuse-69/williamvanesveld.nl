@@ -1,3 +1,2 @@
-export default function Home() {
-  return <GlassArtPortfolio />;
-}
+"use client";
+export { default } from '../components/DadaPortfolio';
