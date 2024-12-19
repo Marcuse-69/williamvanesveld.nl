@@ -1,10 +1,9 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import './globals.css';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'William van Esveld | Glass Art',
   description: 'Glass Art & Conceptual Works',
-}
+};
 
 export default function RootLayout({
   children,
@@ -13,7 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl">
-      <body className="antialiased">{children}</body>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
