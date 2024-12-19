@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   output: 'export',
-  images: { unoptimized: true }
-};
-module.exports = nextConfig;
+  trailingSlash: true,
+  images: { unoptimized: true },
+  // Enable client-side features
+  experimental: {
+    serverActions: true
+  }
+}

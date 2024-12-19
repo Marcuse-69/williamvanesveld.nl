@@ -1,18 +1,19 @@
-import './globals.css';
+import './globals.css'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'William van Esveld | Glass Art',
-  description: 'Portfolio van glaskunst en conceptueel werk door William van Esveld',
-};
+  description: 'Glass Art & Conceptual Works',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="nl">
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
-  );
+  )
 }
