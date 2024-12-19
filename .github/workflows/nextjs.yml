@@ -22,12 +22,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: 'npm'
+      - name: Generate package-lock.json
+        run: npm i --package-lock-only
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g pnpm
-      - name: Build and Export
+        run: npm ci
+      - name: Build Next.js app
         run: |
           npm run build
           touch out/.nojekyll
@@ -46,3 +46,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
