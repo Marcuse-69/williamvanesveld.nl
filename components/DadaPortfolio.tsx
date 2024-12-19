@@ -1,12 +1,14 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
-import { Camera } from 'lucide-react';
-
 const DadaPortfolio = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isGlitching, setIsGlitching] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
   const [textDistortion, setTextDistortion] = useState(0);
+  
+  const artworks = [
+    { id: 1, title: 'Murano Memories' },
+    { id: 2, title: 'North Sea Dreams' },
+    { id: 3, title: 'Venice Reflections' }
+  ];
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -25,15 +27,8 @@ const DadaPortfolio = () => {
         display: 'inline-block',
         color: Math.random() > 0.95 ? '#ff0000' : 'inherit',
         textShadow: Math.random() > 0.95 ? '2px 2px #00ff00' : 'none'
-      }}>{char}</span>
+      }}>
+        {char}
+      </span>
     ));
   };
-
-  return (
-    <div className="flex min-h-screen bg-white text-gray-900 cursor-crosshair">
-      {/* Your original glitch-art interface code */}
-    </div>
-  );
-};
-
-export default DadaPortfolio;
