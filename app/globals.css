@@ -10,6 +10,6 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  cursor: crosshair;
   overflow-x: hidden;
+  cursor: crosshair;
 }
