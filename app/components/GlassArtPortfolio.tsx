@@ -23,6 +23,14 @@ export default function GlassArtPortfolio() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log('Mouse Position:', mousePosition);
+  }, [mousePosition]);
+
+  useEffect(() => {
+    console.log('Scroll Position:', scrollPosition);
+  }, [scrollPosition]);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50 text-slate-800 overflow-hidden">
       {/* Floating glass elements */}

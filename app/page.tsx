@@ -7,5 +7,6 @@ const DadaPortfolio = dynamic(() => import('../components/DadaPortfolio'), {
 });
 
 export default function Home() {
+  console.log('Home component has rendered');
   return <DadaPortfolio />;
 }
