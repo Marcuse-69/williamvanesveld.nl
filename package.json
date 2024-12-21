@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
+  "homepage": "https://<username>.github.io/<repository-name>/",
   "dependencies": {
     "next": "14.0.4",
     "react": "^18.2.0",
