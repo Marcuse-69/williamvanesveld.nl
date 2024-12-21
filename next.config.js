@@ -2,5 +2,6 @@
 module.exports = {
   output: 'export',
   images: { unoptimized: true },
-  basePath: '',
+  basePath: '/williamvanesveld.nl',
+  assetPrefix: '/williamvanesveld.nl/',
 }
