@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,7 +9,7 @@ const DadaPortfolio = () => {
   const [glitchIntensity, setGlitchIntensity] = useState(0);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const navElement = document.getElementById('nav-container');
       if (navElement && isGlitching) {
         const rect = navElement.getBoundingClientRect();
@@ -35,7 +37,7 @@ const DadaPortfolio = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isGlitching]);
 
-  const GlitchText = ({ text }) => (
+  const GlitchText = ({ text }: { text: string }) => (
     <AnimatePresence>
       {text.split('').map((char, i) => (
         <motion.span
