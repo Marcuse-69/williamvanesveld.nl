@@ -35,26 +35,33 @@ const DadaPortfolio = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isGlitching]);
 
-  const GlitchText = ({ text }) => (
-    <AnimatePresence>
-      {text.split('').map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ x: 0, y: 0 }}
-          animate={isGlitching ? {
-            x: Math.sin(i + mousePos.x * 0.01) * 5 * glitchIntensity,
-            y: Math.cos(i + mousePos.y * 0.01) * 5 * glitchIntensity,
-            color: Math.random() > 0.9 ? '#ff0000' : '#000000',
-            textShadow: Math.random() > 0.9 ? '2px 2px #00ff00' : 'none'
-          } : {}}
-          transition={{ type: "spring", stiffness: 100, damping: 5 }}
-          style={{ display: 'inline-block' }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </AnimatePresence>
-  );
+  useEffect(() => {
+    console.log('Mouse Position:', mousePos);
+  }, [mousePos]);
+
+  const GlitchText = ({ text }) => {
+    console.log('GlitchText prop:', text);
+    return (
+      <AnimatePresence>
+        {text.split('').map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ x: 0, y: 0 }}
+            animate={isGlitching ? {
+              x: Math.sin(i + mousePos.x * 0.01) * 5 * glitchIntensity,
+              y: Math.cos(i + mousePos.y * 0.01) * 5 * glitchIntensity,
+              color: Math.random() > 0.9 ? '#ff0000' : '#000000',
+              textShadow: Math.random() > 0.9 ? '2px 2px #00ff00' : 'none'
+            } : {}}
+            transition={{ type: "spring", stiffness: 100, damping: 5 }}
+            style={{ display: 'inline-block' }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </AnimatePresence>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
